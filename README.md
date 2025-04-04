@@ -30,7 +30,7 @@ int main() {
     std::string input = "name,age,city\nAlice,30,New York\nBob,25,London\n";
 
     // Parse CSV into vector of vector of string_view
-    auto result = csv::parse<std::vector>(input);
+    auto result = CSV::parse<std::vector>(input);
 
     for (const auto& row : result) {
         for (const auto& cell : row) {
@@ -71,7 +71,7 @@ static_assert(table.size() == 2);
 
 ## 📄 API
 
-### `csv::parse<C>(S&& input)`
+### `CSV::parse<C>(S&& input)`
 
 | Parameter | Description |
 |----------|-------------|
