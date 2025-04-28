@@ -1,0 +1,22 @@
+name: CI
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Install C++ compiler
+        run: sudo apt-get update && sudo apt-get install -y g++
+
+      - name: Compile and run tests
+        run: |
+          g++ -std=c++20 -I. test_csv_parser.cpp -o test_csv
+          ./test_csv
